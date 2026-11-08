@@ -1,10 +1,8 @@
-@import 'base/normalize';
-@import 'base/variables';
-@import 'base/mixins';
-@import 'base/globales';
-@import 'base/utilidades';
+@use 'base/normalize';
+@use 'base/globales';
+@use 'base/utilidades';
 
 //UI
-@import 'layout/header';
-@import 'layout/footer';
-@import 'layout/navegacion';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/navegacion';

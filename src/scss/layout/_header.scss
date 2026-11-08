@@ -1,13 +1,15 @@
+@use '../base/variables' as v;
+
 .no-webp .inicio{
     background-image: url('../img/header.jpg');
 }
 
-webp .inicio{
+.webp .inicio{
     background-image: url('../img/header.webp');
 }   
 
 .header{
-    background-color: $grisOscuro;
+    background-color: v.$grisOscuro;
     padding: 1rem 0 3rem 0;
     
 }

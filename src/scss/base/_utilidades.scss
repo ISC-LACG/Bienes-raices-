@@ -1,6 +1,9 @@
+@use 'sass:math';
+@use 'variables' as v;
+
 .seccion {
-    margin-top: calc($separacion / 2);
-    margin-bottom: calc($separacion / 2);
+    margin-top: math.div(v.$separacion, 2);
+    margin-bottom: math.div(v.$separacion, 2);
 }
 .contenido-centrado {
     max-width: 800px;
