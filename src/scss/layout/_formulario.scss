@@ -2,46 +2,138 @@
 @use '../base/variables' as v;
 
 .formulario{
+    max-width: 90rem;
+    margin: 0 auto;
+
+    fieldset{
+        border: 0;
+        border-radius: 1.2rem;
+        background-color: #f8f9f6;
+        box-shadow: 0 .4rem 1.8rem rgba(v.$negro, .08);
+        margin: 0 0 3rem;
+        padding: 2.5rem 2rem 1rem;
+
+        @include m.tablet{
+            padding: 3.5rem 4rem 2rem;
+        }
+    }
+
     p{
-        font-size: 1.4rem;
-        color:v.$grisOscuro;
-        margin:2rem 0 0 ;
+        font-size: 1.6rem;
+        color: v.$grisOscuro;
+        line-height: 1.5;
+        margin: 1rem 0 1.5rem;
     }
 
     legend{
-        font-size: 2rem;
-        color: v.$grisOscuro;
-    }
-    label{
+        width: auto;
+        padding: .6rem 1.5rem;
+        border-radius: .6rem;
+        background-color: v.$verde;
+        box-shadow: 0 .3rem .8rem rgba(v.$negro, .12);
+        color: v.$blanco;
+        font-size: 1.8rem;
         font-weight: v.$bold;
+        line-height: 1.3;
+    }
+
+    label{
+        color: v.$grisOscuro;
+        font-size: 1.3rem;
+        font-weight: v.$bold;
+        letter-spacing: .04rem;
         text-transform: uppercase;
         display: block;
+        margin-bottom: .6rem;
     }
-    input:not([type="submit"]),
+
+    input:not([type="submit"]):not([type="radio"]),
     textarea,
     select{
-        padding: 1rem;
+        appearance: none;
+        padding: 1.25rem 1.4rem;
         display: block;
         width: 100%;
         background-color: v.$blanco;
-        border: 1px solid v.$gris;
-        border-radius: 1rem;
-        margin-bottom: 2rem;
+        border: .1rem solid #cfd5ca;
+        border-radius: .7rem;
+        color: v.$grisOscuro;
+        margin-bottom: 2.2rem;
+        transition: border-color .2s ease, box-shadow .2s ease;
+
+        &::placeholder{
+            color: #8a8f87;
+        }
+
+        &:hover{
+            border-color: #9ca596;
+        }
+
+        &:focus{
+            border-color: v.$verde;
+            box-shadow: 0 0 0 .3rem rgba(v.$verde, .18);
+            outline: none;
+        }
     }
 
     textarea{
-        height: 20rem;
+        min-height: 18rem;
+        resize: vertical;
+    }
+
+    select{
+        cursor: pointer;
+        background-image:
+            linear-gradient(45deg, transparent 50%, v.$grisOscuro 50%),
+            linear-gradient(135deg, v.$grisOscuro 50%, transparent 50%);
+        background-position:
+            calc(100% - 2rem) calc(50% - .2rem),
+            calc(100% - 1.5rem) calc(50% - .2rem);
+        background-repeat: no-repeat;
+        background-size: .5rem .5rem, .5rem .5rem;
+        padding-right: 4rem;
     }
 
     .forma-contacto{
-        max-width: 30rem;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: auto 1fr;
         align-items: center;
+        gap: 1rem 1.2rem;
+        max-width: 40rem;
+        margin-bottom: 2.5rem;
+
+        @include m.telefono{
+            grid-template-columns: auto auto auto auto;
+        }
+
+        label{
+            margin: 0;
+        }
     }
 
     input[type="radio"]{
+        appearance: auto;
+        accent-color: v.$verde;
         margin: 0;
-        width: auto;
+        width: 1.8rem;
+        height: 1.8rem;
+        cursor: pointer;
+    }
+
+    input[type="submit"]{
+        width: 100%;
+        border-radius: .7rem;
+        margin-top: 0;
+        padding: 1.3rem 3rem;
+        transition: background-color .2s ease, transform .2s ease;
+
+        &:hover{
+            transform: translateY(-.1rem);
+        }
+
+        @include m.tablet{
+            width: auto;
+            min-width: 18rem;
+        }
     }
 }
