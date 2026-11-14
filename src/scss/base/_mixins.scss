@@ -35,8 +35,10 @@
     text-align: center;
     margin-top: math.div(v.$separacion, 2);
     display: $display;
+    border:none;
 
     &:hover{
         background-color: darken($bgcolor, 10%);
+        cursor: pointer;
     }
 }
